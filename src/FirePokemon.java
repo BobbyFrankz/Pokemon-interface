@@ -1,39 +1,53 @@
+import java.util.Arrays;
+import java.util.List;
+
 public class FirePokemon extends Pokemon {
 
-    private int fireDegree;
-    private int evolution;
+    private static final String type = "fire";
 
-    public FirePokemon(String type, String name, int level, int hp, String sound, int fireDegree, int evolution) {
-        super(type, name, level, hp, sound);
-        this.fireDegree = fireDegree;
-        this.evolution = evolution;
+    List<String> attacks = Arrays.asList("flameThrower","fireLash","inferno","pyroBall");
+
+    public FirePokemon(String name, int level, int hp, String food, String sound) {
+        super(type, name, level, hp, food, sound);
     }
 
-    public void eats(){
-        System.out.println(getName() + " Says: Thats tasty! " + getFood());
+
+    void flameThrower(Pokemon name, Pokemon enemy) {System.out.println(name.getName() + " Uses FlameThrower! " + enemy.getName() + " Gets hit by 90,and has : " + enemy.getHp() + "HP");
+        int damage = enemy.getHp() - 90;
+        enemy.setHp(damage);
+        System.out.println(name.getName() + " has " + enemy.getHp() + " HP left");
+        System.out.println("");
 
     }
 
-    public void speaks(){
-        System.out.println(getName() + " speaks " + getSound());
-
+    void fireLash(Pokemon name, Pokemon enemy) {System.out.println(name.getName() + " Lashes Fire! " + enemy.getName() + " Gets hit by 80,and has : " + enemy.getHp() + "HP");
+        int damage = enemy.getHp() - 800;
+        enemy.setHp(damage);
+        System.out.println(name.getName() + " has " + enemy.getHp() + " HP left");
+        System.out.println("");
     }
-    public void inferno(){
-        System.out.println(getName() + " Uses Infernal Heat!");
 
+    void inferno(Pokemon name, Pokemon enemy) {System.out.println(name.getName() + " Uses Inferno! " + enemy.getName() + " Gets hit by 50,and has : " + enemy.getHp() + "HP");
+        int damage = enemy.getHp() - 50;
+        enemy.setHp(damage);
+        System.out.println(name.getName() + " has " + enemy.getHp() + " HP left");
+        System.out.println("");
     }
-    public void pyroBall(){
-        System.out.println(getName() + " Strikes an PyroBall!");
 
+    void pyroBall(Pokemon name, Pokemon enemy) {System.out.println(name.getName() + " Uses PyroBall " + enemy.getName() + " Gets hit by 55,and has : " + enemy.getHp() + "HP");
+        int damage = enemy.getHp() - 55;
+        enemy.setHp(damage);
+        System.out.println(name.getName() + " has " + enemy.getHp() + " HP left");
+        System.out.println("");
     }
-    public void fireLash(){
-        System.out.println(getName() + " Lashes Fire!");
 
-    }
-    public void flameThrower(){
-        System.out.println(getName() + " Uses Flamethrower!!!");
+
+    List<String> getAttacks() {
+        return attacks;
+
 
     }
 
 }
+
 
